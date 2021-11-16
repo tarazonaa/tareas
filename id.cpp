@@ -33,7 +33,7 @@ int buscaNombre(Contacto *lista, std::string nombre, int size)
 
 void modificarContacto(Contacto *lista, std::string nombre, int size, std::string nuevoEmail)
 {
-    int pos = buscaNombre(lista, size, nombre);
+    int pos = buscaNombre(lista, nombre, size);
     if (pos != -1)
     {
         lista[pos].email = nuevoEmail;
@@ -60,6 +60,47 @@ int main()
     pedrito.tiktok = "pedrish";
     pedrito.years = 123221;
     pedrito.relation = "Friend";
+
+    Contacto ana;
+    ana.name = "Ana";
+    ana.address = "Fuenteasdfeq 213 qwe";
+    ana.email = "ana@email.com";
+    ana.phone = 123984739;
+    ana.insta = "anish";
+    ana.tiktok = "anish";
+    ana.years = 12;
+    ana.relation = "Sister";
+
+    Contacto juanito;
+    juanito.name = "Juanito";
+    juanito.address = "Lugar dondeq asdewkq";
+    juanito.email = "juanito@email.co";
+    juanito.phone = 1209843;
+    juanito.insta = "juanish";
+    juanito.tiktok = "juanish";
+    juanito.years = 189;
+    juanito.relation = "Brother";
+
+    Contacto pablo;
+    pablo.name = "Pablo";
+    pablo.address = "Fuenteasdfeq 213 qwe";
+    pablo.email = "pablo@email.com";
+    pablo.phone = 123984739;
+    pablo.insta = "pablish";
+    pablo.tiktok = "pablish";
+    pablo.years = 9123;
+    pablo.relation = "Father";
+
+    Contacto vale;
+    vale.name = "Vale";
+    vale.address = "Fuenteasdfeq 213 qwe";
+    vale.email = "vale@email.com";
+    vale.phone = 128754;
+    vale.insta = "valish";
+    vale.tiktok = "valish";
+    vale.years = 123;
+    vale.relation = "Friend";
+
 
     agregarContacto(&pedrito, listaDeContactos, &numeroDeElementos);
 
