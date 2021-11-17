@@ -13,17 +13,17 @@ struct Contacto
     std::string relation;
 };
 
-void agregarContacto(Contacto *contacto, Contacto *lista, int *pos)
+void agregarContacto(Contacto* contacto, Contacto** lista, int* pos)
 {
-    lista[*pos] = *contacto;
+    lista[*pos] = contacto;
     (*pos)++;
 }
 
-int buscaNombre(Contacto *lista, std::string nombre, int size)
+int buscaNombre(Contacto** lista, std::string nombre, int size)
 {
     for (int i = 0; i < size; i++)
     {
-        if (lista[i].name == nombre)
+        if (lista[i]->name == nombre)
         {
             return i;
         }
@@ -31,12 +31,12 @@ int buscaNombre(Contacto *lista, std::string nombre, int size)
     return -1;
 }
 
-void modificarContacto(Contacto *lista, std::string nombre, int size, std::string nuevoEmail)
+void modificarContacto(Contacto** lista, std::string nombre, int size, std::string nuevoEmail)
 {
     int pos = buscaNombre(lista, nombre, size);
     if (pos != -1)
     {
-        lista[pos].email = nuevoEmail;
+        lista[pos]->email = nuevoEmail;
     }
     else
     {
@@ -46,16 +46,16 @@ void modificarContacto(Contacto *lista, std::string nombre, int size, std::strin
 
 int main()
 {
-    Contacto *listaDeContactos;
+    Contacto** listaDeContactos;
     int sizeContactos = 100;
     int numeroDeElementos = 0;
-    listaDeContactos = new Contacto[sizeContactos];
+    listaDeContactos = new Contacto*[sizeContactos];
 
     Contacto pedrito;
     pedrito.name = "Pedrito";
     pedrito.address = "Idk";
     pedrito.email = "saDAsd@kasjhd.com";
-    pedrito.phone = 9172378192;
+    pedrito.phone = 378192;
     pedrito.insta = "pedrish";
     pedrito.tiktok = "pedrish";
     pedrito.years = 123221;
@@ -106,5 +106,7 @@ int main()
 
     modificarContacto(listaDeContactos, "Pedrito", sizeContactos, "nuevoMail");
 
-    delete listaDeContactos;
+    std::cout << pedrito.address << std::endl;
+
+    delete [] *listaDeContactos;
 }
