@@ -11,15 +11,6 @@ int numeroDigitos(int n, int* c)
    return *c;
 }
 
-int ciclo(int* n, int* contador)
-{
-   do
-  {
-     int m = *n % 10;
-     *n = *n - m / 10 + m * *contador;
-  } while (*n != *n);
-}
-
 bool primo(int n) {
    int r;
    r = 2;
@@ -46,7 +37,7 @@ void circuloPrimo(int* n, int* c)
    int* contador;
    *contador = numeroDigitos(*n, c);
    int flag = 0;
-
+   int n_original = *n;
 
    for (int i = 0; i < *contador; i++)
    {
@@ -55,6 +46,12 @@ void circuloPrimo(int* n, int* c)
          flag++;
          std::cout << "Tu numero no es primo circular" << std::endl;
       }
+      do
+      {
+         int m = *n % 10;
+         *n = *n - m / 10 + m * *contador;
+      } while (*n != n_original);
+      
    }
    if (flag > 0)
    {
