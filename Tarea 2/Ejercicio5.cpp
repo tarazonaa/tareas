@@ -43,21 +43,23 @@ void circuloPrimo(int* flag, int* n, int* c)
 
 int main()
 {
-   int numero = 1193;
+   int m = 0;
+   int* numero = &m;
    int contador = 0;
    int n = 0;
    int* flag = &n;
 
    std::cout << *flag << std::endl;
 
-   circuloPrimo(flag, &numero, &contador);
-
-   if (*flag > 0)
+   for (int i = 0; i <= 100000; i++)
    {
-      std::cout << "Tu numero no es primo circular." << std::endl;
-   } else
-   {
-      std::cout << "Tu numero es primo circular." << std::endl;
+      circuloPrimo(flag, &m, &contador);
+      if (*flag > 0)
+      {
+         std::cout << m << std::endl;
+      } 
+      *flag = 0;
+      m++;
    }
 
-} 
+}
