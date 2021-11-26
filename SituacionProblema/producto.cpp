@@ -817,26 +817,26 @@ int main()
     std::cout << jazz.getTipo() << std::endl;
     //3
     Ukulele ukulele1(1, "LTD", "Acustico", 700);
-    std::cout << ukulele.getTipo() << std::endl;
+    std::cout << ukulele1.getPrecio() << std::endl;
     //4
     Capos capo_guitarra("Guitarra", "pop", 300);
-    std::cout << jazz.getTipo() << std::endl;
+    std::cout << capo_guitarra.getInstrumento() << std::endl;
     //5
     Microfonos shure("Shure", "SM57", 1500);
-    std::cout << jazz.getTipo() << std::endl;
+    std::cout << shure.getModelo() << std::endl;
     //6
     Bajo jazzmaster(3, "Fender", "Electrico Jazz", 4, 10000);
-    std::cout << jackson.getMarca() << std::endl;
+    std::cout << jazzmaster.getTipo() << std::endl;
     //7
     Plumillas john_sig(36, "Jazz XL", 10000);
-    std::cout << jackson.getMarca() << std::endl;
+    std::cout << john_sig.getCantidad() << std::endl;
     //8
     FM black(16, "Tele", 15000);
-    std::cout << jackson.getMarca() << std::endl;
+    std::cout << black.getCuerdas() << std::endl;
     //9
     Partituras metallica("...And Justice For All", "Guitarra", 400);
-    std::cout << jackson.getMarca() << std::endl;
+    std::cout << metallica.getDisco() << std::endl;
     //10
     Pedal tube_screamer("Overdrive", "Ibanez", 800);
-    std::cout << jackson.getMarca() << std::endl;
+    std::cout << tube_screamer.getEstilo() << std::endl;
 }
