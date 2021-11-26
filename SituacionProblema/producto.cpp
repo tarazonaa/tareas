@@ -531,7 +531,281 @@ Bajo::Bajo(int pesoP, std::string marcaP, std::string tipoP, int cuerdasP, int p
     precio = precioP;
 }
 
+class Plumillas
+{
+private:
+    int cantidad;
+    std::string tipo;
+    int precio;
 
+    //Getters
+public:
+    int getCantidad();
+    std::string getTipo();
+    int getPrecio();
+
+private:
+    void setCantidad(int cantidadP);
+    void setTipo(std::string tipoP);
+    void setPrecio(int precioP);
+
+    //Constructores
+public:
+    Plumillas();
+    Plumillas(int cantidadP, std::string tipoP, int precioP);
+};
+
+std::string
+Plumillas::getTipo()
+{
+    return tipo;
+}
+
+void Plumillas::setTipo(std::string tipoP)
+{
+    tipo = tipoP;
+}
+
+int Plumillas::getPrecio()
+{
+    return peso;
+}
+
+void Plumillas::setPrecio(int precioP)
+{
+    precio = precioP;
+}
+
+int Plumillas::getCantidad()
+{
+    return precio;
+}
+
+void Plumillas::setCantidad(int cantidadP)
+{
+    cantidad = cantidadP;
+}
+
+Plumillas::Plumillas()
+{
+    cantidad = 12;
+    tipo = "jazz";
+    precio = 100;
+}
+
+Plumillas::Plumillas(int cantidadP, std::string tipoP, int precioP)
+{
+    peso = cantidadP;
+    tipo = tipoP;
+    precio = precioP;
+}
+
+class FM
+{
+private:
+    int cuerdas;
+    std::string cuerpo;
+    int precio;
+
+    //Getters
+public:
+    int getCuerdas();
+    std::string getCuerpo();
+    int getPrecio();
+
+private:
+    void setCuerdas(int cantidadP);
+    void setCuerpo(std::string cuerpoP);
+    void setPrecio(int precioP);
+
+    //Constructores
+public:
+    FM();
+    FM(int cuerdasP, std::string cuerpoP, int precioP);
+};
+
+std::string
+FM::getCuerpo()
+{
+    return cuerpo;
+}
+
+void FM::setCuerpo(std::string cuerpoP)
+{
+    cuerpo = cuerpoP;
+}
+
+int FM::getPrecio()
+{
+    return precio;
+}
+
+void FM::setPrecio(int precioP)
+{
+    precio = precioP;
+}
+
+int FM::getCuerdas()
+{
+    return cuerdas;
+}
+
+void FM::setCuerdas(int cuerdasP)
+{
+    cuerdas = cuerdasP;
+}
+
+FM::FM()
+{
+    cuerdas = 12;
+    cuerpo = "strat";
+    precio = 12000;
+}
+
+FM::FM(int cuerdasP, std::string cuerpoP, int precioP)
+{
+    cuerdas = cuerdasP;
+    cuerpo = cuerpoP;
+    precio = precioP;
+}
+
+class Partituras
+{
+private:
+    std::string disco;
+    std::string instrumento;
+    int precio;
+
+    //Getters
+public:
+    std::string getDisco();
+    std::string getInstrumento();
+    int getPrecio();
+
+private:
+    void setDisco(std::string discoP);
+    void setInstrumento(std::string instrumentoP);
+    void setPrecio(int precioP);
+
+    //Constructores
+public:
+    Partituras();
+    Partituras(std::string discoP, std::string instrumentoP, int precioP);
+};
+
+std::string
+Partituras::getDisco()
+{
+    return disco;
+}
+
+void Partituras::setDisco(std::string discoP)
+{
+    disco = discoP;
+}
+
+int Partituras::getPrecio()
+{
+    return precio;
+}
+
+void Partituras::setPrecio(int precioP)
+{
+    precio = precioP;
+}
+
+std::string Partituras::getInstrumento()
+{
+    return instrumento;
+}
+
+void Partituras::setInstrumento(std::string instrumentoP)
+{
+    instrumento = instrumentoP;
+}
+
+Partituras::Partituras()
+{
+    disco = "Appetite For Destruction";
+    instrumento = "Guitarra";
+    precio = 12000;
+}
+
+Partituras::Partituras(std::string discoP, std::string instrumentoP, int precioP)
+{
+    disco = discoP;
+    instrumento = instrumentoP;
+    precio = precioP;
+}
+
+class Pedal
+{
+private:
+    std::string estilo;
+    std::string marca;
+    int precio;
+
+    //Getters
+public:
+    std::string getEstilo();
+    std::string getMarca();
+    int getPrecio();
+
+private:
+    void setEstilo(std::string estiloP);
+    void setMarca(std::string marcaP);
+    void setPrecio(int precioP);
+
+    //Constructores
+public:
+    Pedal();
+    Pedal(std::string estiloP, std::string marcaP, int precioP);
+};
+
+std::string
+Pedal::getEstilo()
+{
+    return estilo;
+}
+
+void Pedal::setEstilo(std::string estiloP)
+{
+    estilo = estiloP;
+}
+
+int Pedal::getPrecio()
+{
+    return precio;
+}
+
+void Pedal::setPrecio(int precioP)
+{
+    precio = precioP;
+}
+
+std::string Pedal::getMarca()
+{
+    return marca;
+}
+
+void Pedal::setMarca(std::string marcaP)
+{
+    marca = marcaP;
+}
+
+Pedal::Pedal()
+{
+    estilo = "Distorcion";
+    marca = "Boss";
+    precio = 4000;
+}
+
+Pedal::Pedal(std::string estiloP, std::string marcaP, int precioP)
+{
+    estilo = estiloP;
+    marca = marcaP;
+    precio = precioP;
+}
 
 int main()
 {
@@ -545,12 +819,24 @@ int main()
     Ukulele ukulele1(1, "LTD", "Acustico", 700);
     std::cout << ukulele.getTipo() << std::endl;
     //4
-    Capos capoGuitarra("Guitarra", "pop", 300);
+    Capos capo_guitarra("Guitarra", "pop", 300);
     std::cout << jazz.getTipo() << std::endl;
     //5
     Microfonos shure("Shure", "SM57", 1500);
     std::cout << jazz.getTipo() << std::endl;
     //6
     Bajo jazzmaster(3, "Fender", "Electrico Jazz", 4, 10000);
+    std::cout << jackson.getMarca() << std::endl;
+    //7
+    Plumillas john_sig(36, "Jazz XL", 10000);
+    std::cout << jackson.getMarca() << std::endl;
+    //8
+    FM black(16, "Tele", 15000);
+    std::cout << jackson.getMarca() << std::endl;
+    //9
+    Partituras metallica("...And Justice For All", "Guitarra", 400);
+    std::cout << jackson.getMarca() << std::endl;
+    //10
+    Pedal tube_screamer("Overdrive", "Ibanez", 800);
     std::cout << jackson.getMarca() << std::endl;
 }
