@@ -180,7 +180,7 @@ int Bateria::getPrecio()
     return precio;
 }
 
-void Bateria::setPrecio(int tomsP)
+void Bateria::setPrecio(int precioP)
 {
     precio = precioP;
 }
@@ -281,12 +281,12 @@ Ukulele::Ukulele()
     precio = 600;
 }
 
-Ukulele::Ukulele(int sizeP, std::string marcaP, std::string tipoP, int cuerdasP)
+Ukulele::Ukulele(int sizeP, std::string marcaP, std::string tipoP, int precioP)
 {
     size = sizeP;
     marca = marcaP;
     tipo = tipoP;
-    cuerdas = cuerdasP;
+    precio = precioP;
 }
 
 class Capos
@@ -317,7 +317,7 @@ public:
 std::string
 Capos::getInstrumento()
 {
-    return marca;
+    return instrumento;
 }
 
 void Capos::setInstrumento(std::string instrumentoP)
@@ -348,7 +348,7 @@ void Capos::setPrecio(int precioP)
 
 Capos::Capos()
 {
-    marca = "Fender";
+    instrumento = "Fender";
     tipo = "6 cuerdas";
     precio = 250;
 }
@@ -419,7 +419,7 @@ void Microfonos::setPrecio(int precioP)
 
 Microfonos::Microfonos()
 {
-    instrumento = "Shure";
+    marca = "Shure";
     modelo = "SM58";
     precio = 700;
 }
@@ -568,7 +568,7 @@ void Plumillas::setTipo(std::string tipoP)
 
 int Plumillas::getPrecio()
 {
-    return peso;
+    return precio;
 }
 
 void Plumillas::setPrecio(int precioP)
@@ -595,7 +595,7 @@ Plumillas::Plumillas()
 
 Plumillas::Plumillas(int cantidadP, std::string tipoP, int precioP)
 {
-    peso = cantidadP;
+    cantidad = cantidadP;
     tipo = tipoP;
     precio = precioP;
 }
