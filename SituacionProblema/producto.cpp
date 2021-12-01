@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <string>
 using namespace std;
 
@@ -11,7 +12,7 @@ private:
     int numCuerdas;
     int precio;
 
-    //Getters
+    // Getters
 public:
     int getPeso();
     std::string getMarca();
@@ -27,7 +28,7 @@ private:
     void setNumCuerdas(int numCuerdasP);
     void setPrecio(int precioP);
 
-    //Constructores
+    // Constructores
 public:
     Guitarra();
     Guitarra(int pesoP, std::string marcaP, std::string tipoP, int cuerdasP, int precioP);
@@ -105,10 +106,9 @@ Guitarra::Guitarra(int pesoP, std::string marcaP, std::string tipoP, int cuerdas
 
 void Guitarra::imprimirGuitarra()
 {
-    std::cout << "Marca: " << marca << std::endl;
-    std::cout << "Tipo: " << tipo << std::endl;
-    std::cout << "Cuerdas: " << numCuerdas << std::endl;
-    std::cout << "Precio: " << precio << std::endl;
+    std::cout << "GUITARRA" << std::endl;
+    std::cout << std::left << std::setw(10) << "Marca" << std::setw(10) << "Tipo" << std::setw(10) << "Cuerdas" << setw(10) << "Precio" << std::endl;
+    std::cout << std::left << std::setw(10) << marca << std::setw(10) << tipo << std::setw(10) << numCuerdas << setw(10) << precio << std::endl;
 }
 
 class Bateria
@@ -120,7 +120,7 @@ private:
     int platillos;
     int precio;
 
-    //Getters
+    // Getters
 public:
     int getToms();
     std::string getMarca();
@@ -129,7 +129,7 @@ public:
     int getPrecio();
     void imprimirBateria();
 
-    //Setters
+    // Setters
 private:
     void setToms(int tomsP);
     void setMarca(std::string marcaP);
@@ -137,7 +137,7 @@ private:
     void setPlatillos(int platillosP);
     void setPrecio(int precioP);
 
-    //Constructores
+    // Constructores
 public:
     Bateria();
     Bateria(int tomsP, std::string marcaP, std::string tipoP, int platillosP, int precioP);
@@ -215,10 +215,9 @@ Bateria::Bateria(int pesoP, std::string marcaP, std::string tipoP, int platillos
 
 void Bateria::imprimirBateria()
 {
-    std::cout << "Marca: " << marca << std::endl;
-    std::cout << "Tipo: " << tipo << std::endl;
-    std::cout << "Platillos: " << platillos << std::endl;
-    std::cout << "Precio: " << precio << std::endl;
+    std::cout << "BATERIA" << std::endl;
+    std::cout << std::left << std::setw(10) << "Marca" << std::setw(10) << "Tipo" << std::setw(10) << "Platillos" << std::setw(10) << "Toms" << std::setw(10) << "Precio" << std::endl;
+    std::cout << std::left << std::setw(10) << marca << std::setw(10) << tipo << std::setw(10) << platillos << std::setw(10) << toms << std::setw(10) << precio << std::endl;
 }
 
 class Ukulele
@@ -229,7 +228,7 @@ private:
     std::string tipo;
     int precio;
 
-    //Getters
+    // Getters
 public:
     int getSize();
     std::string getMarca();
@@ -237,14 +236,14 @@ public:
     int getPrecio();
     void imprimirUkulele();
 
-    //Setters
+    // Setters
 private:
     void setSize(int sizeP);
     void setMarca(std::string marcaP);
     void setTipo(std::string tipoP);
     void setPrecio(int precioP);
 
-    //Constructores
+    // Constructores
 public:
     Ukulele();
     Ukulele(int sizeP, std::string marcaP, std::string tipoP, int precioP);
@@ -310,9 +309,9 @@ Ukulele::Ukulele(int sizeP, std::string marcaP, std::string tipoP, int precioP)
 
 void Ukulele::imprimirUkulele()
 {
-    std::cout << "Marca: " << marca << std::endl;
-    std::cout << "Tipo: " << tipo << std::endl;
-    std::cout << "Precio" << precio << std::endl;
+    std::cout << "UKULELE" << std::endl;
+    std::cout << std::left << std::setw(10) << "Marca" << std::setw(10) << "Tipo" << std::setw(10) << "Precio" << std::endl;
+    std::cout << std::left << std::setw(10) << marca << std::setw(10) << tipo << std::setw(10) << precio << std::endl;
 }
 
 class Capos
@@ -322,20 +321,20 @@ private:
     std::string tipo;
     int precio;
 
-    //Getters
+    // Getters
 public:
     std::string getInstrumento();
     std::string getTipo();
     int getPrecio();
     void imprimirCapos();
 
-    //Setters
+    // Setters
 private:
     void setInstrumento(std::string instrumentoP);
     void setTipo(std::string tipoP);
     void setPrecio(int precioP);
 
-    //Constructores
+    // Constructores
 public:
     Capos();
     Capos(std::string instrumentoP, std::string tipoP, int precioP);
@@ -389,9 +388,9 @@ Capos::Capos(std::string instrumentoP, std::string tipoP, int precioP)
 
 void Capos::imprimirCapos()
 {
-    std::cout << "Instrumento: " << instrumento << std::endl;
-    std::cout << "Tipo: " << tipo << std::endl;
-    std::cout << "Precio" << precio << std::endl;
+    std::cout << "CAPOS" << std::endl;
+    std::cout << std::left << std::setw(15) << "Instrumento" << std::setw(10) << "Tipo" << std::setw(10) << "Precio" << std::endl;
+    std::cout << std::left << std::setw(15) << instrumento << std::setw(10) << tipo << std::setw(10) << precio << std::endl;
 }
 
 class Microfonos
@@ -401,20 +400,20 @@ private:
     std::string modelo;
     int precio;
 
-    //Getters
+    // Getters
 public:
     std::string getMarca();
     std::string getModelo();
     int getPrecio();
     void imprimirMicrofonos();
 
-    //Setters
+    // Setters
 private:
     void setMarca(std::string marcaP);
     void setModelo(std::string modeloP);
     void setPrecio(int precioP);
 
-    //Constructores
+    // Constructores
 public:
     Microfonos();
     Microfonos(std::string marcaP, std::string modeloP, int precioP);
@@ -468,9 +467,9 @@ Microfonos::Microfonos(std::string marcaP, std::string modeloP, int precioP)
 
 void Microfonos::imprimirMicrofonos()
 {
-    std::cout << "Marca: " << marca << std::endl;
-    std::cout << "Modelo: " << modelo << std::endl;
-    std::cout << "Precio" << precio << std::endl;
+    std::cout << "MICROFONOS" << std::endl;
+    std::cout << std::left << std::setw(10) << "Marca" << std::setw(10) << "Modelo" << std::setw(10) << "Precio" << std::endl;
+    std::cout << std::left << std::setw(10) << marca << std::setw(10) << modelo << std::setw(10) << precio << std::endl;
 }
 
 class Bajo
@@ -482,7 +481,7 @@ private:
     int numCuerdas;
     int precio;
 
-    //Getters
+    // Getters
 public:
     int getPeso();
     std::string getMarca();
@@ -498,7 +497,7 @@ private:
     void setNumCuerdas(int numCuerdasP);
     void setPrecio(int precioP);
 
-    //Constructores
+    // Constructores
 public:
     Bajo();
     Bajo(int pesoP, std::string marcaP, std::string tipoP, int cuerdasP, int precioP);
@@ -576,10 +575,9 @@ Bajo::Bajo(int pesoP, std::string marcaP, std::string tipoP, int cuerdasP, int p
 
 void Bajo::imprimirBajo()
 {
-    std::cout << "Marca: " << marca << std::endl;
-    std::cout << "Tipo: " << tipo << std::endl;
-    std::cout << "Cuerdas: " << numCuerdas << std::endl;
-    std::cout << "Precio" << precio << std::endl;
+    std::cout << "BAJOS" << std::endl;
+    std::cout << std::left << std::setw(10) << "Marca" << std::setw(10) << "Tipo" << std::setw(10) << "Cuerdas" << std::setw(10) << "Precio" << std::endl;
+    std::cout << std::left << std::setw(10) << marca << std::setw(10) << tipo << std::setw(10) << numCuerdas << std::setw(10) << precio << std::endl;
 }
 
 class Plumillas
@@ -589,7 +587,7 @@ private:
     std::string tipo;
     int precio;
 
-    //Getters
+    // Getters
 public:
     int getCantidad();
     std::string getTipo();
@@ -601,7 +599,7 @@ private:
     void setTipo(std::string tipoP);
     void setPrecio(int precioP);
 
-    //Constructores
+    // Constructores
 public:
     Plumillas();
     Plumillas(int cantidadP, std::string tipoP, int precioP);
@@ -654,9 +652,9 @@ Plumillas::Plumillas(int cantidadP, std::string tipoP, int precioP)
 
 void Plumillas::imprimirPlumillas()
 {
-    std::cout << "Cantidad: " << cantidad << std::endl;
-    std::cout << "Tipo: " << tipo << std::endl;
-    std::cout << "Precio: " << precio << std::endl;
+    std::cout << "PLUMILLAS" << std::endl;
+    std::cout << std::left << std::setw(10) << "Cantidad" << std::setw(10) << "Tipo" << std::setw(10) << "Precio" << std::endl;
+    std::cout << std::left << std::setw(10) << cantidad << std::setw(10) << tipo << std::setw(10) << precio << std::endl;
 }
 
 class FM
@@ -666,7 +664,7 @@ private:
     std::string cuerpo;
     int precio;
 
-    //Getters
+    // Getters
 public:
     int getCuerdas();
     std::string getCuerpo();
@@ -678,7 +676,7 @@ private:
     void setCuerpo(std::string cuerpoP);
     void setPrecio(int precioP);
 
-    //Constructores
+    // Constructores
 public:
     FM();
     FM(int cuerdasP, std::string cuerpoP, int precioP);
@@ -731,9 +729,9 @@ FM::FM(int cuerdasP, std::string cuerpoP, int precioP)
 
 void FM::imprimirFM()
 {
-    std::cout << "Cuerdas: " << cuerdas << std::endl;
-    std::cout << "Cuerpo: " << cuerpo << std::endl;
-    std::cout << "Precio: " << precio << std::endl;
+    std::cout << "FM" << std::endl;
+    std::cout << std::left << std::setw(10) << "Cuerdas" << std::setw(10) << "Cuerpo" << std::setw(10) << "Precio" << std::endl;
+    std::cout << std::left << std::setw(10) << cuerdas << std::setw(10) << cuerpo << std::setw(10) << precio << std::endl;
 }
 
 class Partituras
@@ -743,7 +741,7 @@ private:
     std::string instrumento;
     int precio;
 
-    //Getters
+    // Getters
 public:
     std::string getDisco();
     std::string getInstrumento();
@@ -755,7 +753,7 @@ private:
     void setInstrumento(std::string instrumentoP);
     void setPrecio(int precioP);
 
-    //Constructores
+    // Constructores
 public:
     Partituras();
     Partituras(std::string discoP, std::string instrumentoP, int precioP);
@@ -808,9 +806,9 @@ Partituras::Partituras(std::string discoP, std::string instrumentoP, int precioP
 
 void Partituras::imprimirPartituras()
 {
-    std::cout << "Disco: " << disco << std::endl;
-    std::cout << "Instrumento: " << instrumento << std::endl;
-    std::cout << "Precio: " << precio << std::endl;
+    std::cout << "PARTITURAS" << std::endl;
+    std::cout << std::left << std::setw(30) << "Disco" << std::setw(15) << "Instrumento" << std::setw(10) << "Precio" << std::endl;
+    std::cout << std::left << std::setw(30) << disco << std::setw(15) << instrumento << std::setw(10) << precio << std::endl;
 }
 
 class Pedal
@@ -820,7 +818,7 @@ private:
     std::string marca;
     int precio;
 
-    //Getters
+    // Getters
 public:
     std::string getEstilo();
     std::string getMarca();
@@ -832,7 +830,7 @@ private:
     void setMarca(std::string marcaP);
     void setPrecio(int precioP);
 
-    //Constructores
+    // Constructores
 public:
     Pedal();
     Pedal(std::string estiloP, std::string marcaP, int precioP);
@@ -885,9 +883,9 @@ Pedal::Pedal(std::string estiloP, std::string marcaP, int precioP)
 
 void Pedal::imprimirPedal()
 {
-    std::cout << "Producto: " << marca << std::endl;
-    std::cout << "Efecto: " << estilo << std::endl;
-    std::cout << "Precio: " << precio << std::endl;
+    std::cout << "PARTITURAS" << std::endl;
+    std::cout << std::left << std::setw(10) << "Marca" << std::setw(15) << "Efecto" << std::setw(10) << "Precio" << std::endl;
+    std::cout << std::left << std::setw(10) << marca << std::setw(15) << estilo << std::setw(10) << precio << std::endl;
 }
 
 class Tienda
@@ -1030,59 +1028,70 @@ void Tienda::agregarPedal(Pedal *p)
 void Tienda::listarProductos()
 {
     listaGuitarras[0]->imprimirGuitarra();
-    std::cout << "Total de guitarras en stock: " << contadorStockGuitarra << std::endl;
+    std::cout << "Total de guitarras en stock: " << contadorStockGuitarra << "\n"
+              << std::endl;
     listaBaterias[0]->imprimirBateria();
-    std::cout << "Total de baterias en stock: " << contadorStockBateria << std::endl;
+    std::cout << "Total de baterias en stock: " << contadorStockBateria << "\n"
+              << std::endl;
     listaBajos[0]->imprimirBajo();
-    std::cout << "Total de bajos en stock: " << contadorStockBajo << std::endl;
+    std::cout << "Total de bajos en stock: " << contadorStockBajo << "\n"
+              << std::endl;
     listaFM[0]->imprimirFM();
-    std::cout << "Total de guitarras FM en stock: " << contadorStockFM << std::endl;
+    std::cout << "Total de guitarras FM en stock: " << contadorStockFM << "\n"
+              << std::endl;
     listaUkuleles[0]->imprimirUkulele();
-    std::cout << "Total de ukuleles en stock: " << contadorStockUkulele << std::endl;
+    std::cout << "Total de ukuleles en stock: " << contadorStockUkulele << "\n"
+              << std::endl;
     listaPlumillas[0]->imprimirPlumillas();
-    std::cout << "Total de plumillas en stock: " << contadorStockPlumillas << std::endl;
+    std::cout << "Total de plumillas en stock: " << contadorStockPlumillas << "\n"
+              << std::endl;
     listaPartituras[0]->imprimirPartituras();
-    std::cout << "Total de partituras en stock: " << contadorStockPartituras << std::endl;
+    std::cout << "Total de partituras en stock: " << contadorStockPartituras << "\n"
+              << std::endl;
     listaPedales[0]->imprimirPedal();
-    std::cout << "Total de guitarras en stock: " << contadorStockPedal << std::endl;
+    std::cout << "Total de guitarras en stock: " << contadorStockPedal << "\n"
+              << std::endl;
     listaCapos[0]->imprimirCapos();
-    std::cout << "Total de capos en stock: " << contadorStockCapos << std::endl;
+    std::cout << "Total de capos en stock: " << contadorStockCapos << "\n"
+              << std::endl;
     listaMicrofonos[0]->imprimirMicrofonos();
-    std::cout << "Total de microfonos en stock: " << contadorStockMicrofonos << std::endl;
+    std::cout << "Total de microfonos en stock: " << contadorStockMicrofonos << "\n"
+              << std::endl;
 }
 
 int main()
 {
-    //1
+    // 1
     Guitarra jackson(4, "Jackson", "Electrica", 6, 20000);
     std::cout << jackson.getMarca() << std::endl;
-    //2
+    // 2
     Bateria jazz(2, "Tama", "Acustica", 3, 15000);
     std::cout << jazz.getTipo() << std::endl;
-    //3
+    // 3
     Ukulele ukulele1(1, "LTD", "Acustico", 700);
     std::cout << ukulele1.getPrecio() << std::endl;
-    //4
+    // 4
     Capos capo_guitarra("Guitarra", "pop", 300);
     std::cout << capo_guitarra.getInstrumento() << std::endl;
-    //5
+    // 5
     Microfonos shure("Shure", "SM57", 1500);
     std::cout << shure.getModelo() << std::endl;
-    //6
+    // 6
     Bajo jazzmaster(3, "Fender", "Electrico Jazz", 4, 10000);
     std::cout << jazzmaster.getTipo() << std::endl;
-    //7
+    // 7
     Plumillas john_sig(36, "Jazz XL", 10000);
     std::cout << john_sig.getCantidad() << std::endl;
-    //8
+    // 8
     FM black(16, "Tele", 15000);
     std::cout << black.getCuerdas() << std::endl;
-    //9
+    // 9
     Partituras metallica("...And Justice For All", "Guitarra", 400);
     std::cout << metallica.getDisco() << std::endl;
-    //10
+    // 10
     Pedal tube_screamer("Overdrive", "Ibanez", 800);
-    std::cout << tube_screamer.getEstilo() << std::endl;
+    std::cout << tube_screamer.getEstilo() << '\n'
+              << std::endl;
 
     Tienda tienda_musical(5);
     tienda_musical.agregarGuitarra(&jackson);
