@@ -896,21 +896,75 @@ private:
     int minStock;
     int contadorStockGuitarra;
     Guitarra **listaGuitarras;
+    int contadorStockBateria;
+    Bateria **listaBaterias;
+    int contadorStockBajo;
+    Bajo **listaBajos;
+    int contadorStockPedal;
+    Pedal **listaPedales;
+    int contadorStockUkulele;
+    Ukulele **listaUkuleles;
+    int contadorStockFM;
+    FM **listaFM;
+    int contadorStockCapos;
+    Capos **listaCapos;
+    int contadorStockMicrofonos;
+    Microfonos **listaMicrofonos;
+    int contadorStockPlumillas;
+    Plumillas **listaPlumillas;
+    int contadorStockPartituras;
+    Partituras **listaPartituras;
     Tienda();
 
 public:
     Tienda(int minStockP);
     void listarProductos();
     void agregarGuitarra(Guitarra *g);
-    int getMinStock();
     int getContadorStockGuitarra();
+    void agregarBajo(Bajo *b);
+    int getContadorStockBajo();
+    void agregarBateria(Bateria *b);
+    int getContadorStockBateria();
+    void agregarPedal(Pedal *p);
+    int getContadorStockPedal();
+    void agregarFM(FM *f);
+    int getContadorStockFM();
+    void agregarCapos(Capos *c);
+    int getContadorStockCapos();
+    void agregarMicrofonos(Microfonos *m);
+    int getContadorStockMicrofonos();
+    void agregarPlumillas(Plumillas *p);
+    int getContadorStockPlumillas();
+    void agregarPartituras(Partituras *p);
+    int getContadorStockPartituras();
+    void agregarUkulele(Ukulele *u);
+    int getContadorStockUkulele();
+    int getMinStock();
 };
 
 Tienda::Tienda(int minStockP)
 {
     minStock = minStockP;
     contadorStockGuitarra = 0;
+    contadorStockBateria = 0;
+    contadorStockBajo = 0;
+    contadorStockUkulele = 0;
+    contadorStockFM = 0;
+    contadorStockPartituras = 0;
+    contadorStockPlumillas = 0;
+    contadorStockCapos = 0;
+    contadorStockMicrofonos = 0;
+    contadorStockPedal = 0;
     listaGuitarras = new Guitarra *[minStock];
+    listaBaterias = new Bateria *[minStock];
+    listaBajos = new Bajo *[minStock];
+    listaUkuleles = new Ukulele *[minStock];
+    listaFM = new FM *[minStock];
+    listaPartituras = new Partituras *[minStock];
+    listaPlumillas = new Plumillas *[minStock];
+    listaCapos = new Capos *[minStock];
+    listaMicrofonos = new Microfonos *[minStock];
+    listaPedales = new Pedal *[minStock];
 }
 
 void Tienda::agregarGuitarra(Guitarra *g)
@@ -919,10 +973,82 @@ void Tienda::agregarGuitarra(Guitarra *g)
     contadorStockGuitarra++;
 }
 
+void Tienda::agregarBateria(Bateria *b)
+{
+    listaBaterias[contadorStockBateria] = b;
+    contadorStockBateria++;
+}
+
+void Tienda::agregarBajo(Bajo *b)
+{
+    listaBajos[contadorStockBajo] = b;
+    contadorStockBajo++;
+}
+
+void Tienda::agregarUkulele(Ukulele *u)
+{
+    listaUkuleles[contadorStockUkulele] = u;
+    contadorStockUkulele++;
+}
+
+void Tienda::agregarFM(FM *f)
+{
+    listaFM[contadorStockFM] = f;
+    contadorStockFM++;
+}
+
+void Tienda::agregarPartituras(Partituras *p)
+{
+    listaPartituras[contadorStockPartituras] = p;
+    contadorStockPartituras++;
+}
+
+void Tienda::agregarPlumillas(Plumillas *p)
+{
+    listaPlumillas[contadorStockPlumillas] = p;
+    contadorStockPlumillas++;
+}
+
+void Tienda::agregarMicrofonos(Microfonos *m)
+{
+    listaMicrofonos[contadorStockMicrofonos] = m;
+    contadorStockMicrofonos++;
+}
+
+void Tienda::agregarCapos(Capos *c)
+{
+    listaCapos[contadorStockCapos] = c;
+    contadorStockCapos++;
+}
+
+void Tienda::agregarPedal(Pedal *p)
+{
+    listaPedales[contadorStockPedal] = p;
+    contadorStockPedal++;
+}
+
 void Tienda::listarProductos()
 {
     listaGuitarras[0]->imprimirGuitarra();
     std::cout << "Total de guitarras en stock: " << contadorStockGuitarra << std::endl;
+    listaBaterias[0]->imprimirBateria();
+    std::cout << "Total de baterias en stock: " << contadorStockBateria << std::endl;
+    listaBajos[0]->imprimirBajo();
+    std::cout << "Total de bajos en stock: " << contadorStockBajo << std::endl;
+    listaFM[0]->imprimirFM();
+    std::cout << "Total de guitarras FM en stock: " << contadorStockFM << std::endl;
+    listaUkuleles[0]->imprimirUkulele();
+    std::cout << "Total de ukuleles en stock: " << contadorStockUkulele << std::endl;
+    listaPlumillas[0]->imprimirPlumillas();
+    std::cout << "Total de plumillas en stock: " << contadorStockPlumillas << std::endl;
+    listaPartituras[0]->imprimirPartituras();
+    std::cout << "Total de partituras en stock: " << contadorStockPartituras << std::endl;
+    listaPedales[0]->imprimirPedal();
+    std::cout << "Total de guitarras en stock: " << contadorStockPedal << std::endl;
+    listaCapos[0]->imprimirCapos();
+    std::cout << "Total de capos en stock: " << contadorStockCapos << std::endl;
+    listaMicrofonos[0]->imprimirMicrofonos();
+    std::cout << "Total de microfonos en stock: " << contadorStockMicrofonos << std::endl;
 }
 
 int main()
@@ -960,5 +1086,14 @@ int main()
 
     Tienda tienda_musical(5);
     tienda_musical.agregarGuitarra(&jackson);
+    tienda_musical.agregarBateria(&jazz);
+    tienda_musical.agregarBajo(&jazzmaster);
+    tienda_musical.agregarUkulele(&ukulele1);
+    tienda_musical.agregarCapos(&capo_guitarra);
+    tienda_musical.agregarPartituras(&metallica);
+    tienda_musical.agregarPlumillas(&john_sig);
+    tienda_musical.agregarFM(&black);
+    tienda_musical.agregarPedal(&tube_screamer);
+    tienda_musical.agregarMicrofonos(&shure);
     tienda_musical.listarProductos();
 }
