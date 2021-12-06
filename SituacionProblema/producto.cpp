@@ -891,7 +891,7 @@ void Pedal::imprimirPedal()
 class Cliente
 {
 private:
-    std::string nombreCommpleto;
+    std::string nombreCompleto;
     int idCliente;
     int maxSizeLista;
     int contProductosComprados;
@@ -903,10 +903,46 @@ public:
     Cliente(std::string nombreCompletoP, int idClienteP);
     std::string getNombreCompleto();
     int getIdCliente();
-    double getTotalGastado();
-    void incrementarTotalGastado(double cantidadGastada);
+    int getTotalGastado();
+    void incrementarTotalGastado(int cantidadGastada);
     void agregarProductoComprado(std::string nombreProducto);
 };
+
+Cliente::Cliente(std::string nombreCompletoP, int idClienteP)
+{
+    nombreCompleto = nombreCompletoP;
+    idCliente = idClienteP;
+    contProductosComprados = 0;
+    maxSizeLista = 5;
+    totalGastado = 0;
+    listaNombresProductosComprados = new std::string[maxSizeLista];
+}
+
+int Cliente::getTotalGastado()
+{
+    return totalGastado;
+}
+
+std::string Cliente::getNombreCompleto()
+{
+    return nombreCompleto;
+}
+
+int Cliente::getIdCliente()
+{
+    return idCliente;
+}
+
+void Cliente::incrementarTotalGastado(int cantidadGastada)
+{
+    totalGastado += cantidadGastada;
+}
+
+void Cliente::agregarProductoComprado(std::string nombreProducto)
+{
+    listaNombresProductosComprados[contProductosComprados] = nombreProducto;
+    contProductosComprados++;
+}
 
 class Tienda
 {
@@ -940,6 +976,7 @@ private:
     int maxSizeListaClientes;
 
 public:
+    ~Tienda();
     // Productos
     Tienda(int minStockP);
     void listarProductos();
@@ -965,6 +1002,8 @@ public:
     int getContadorStockUkulele();
     int getMinStock();
 
+    void imprimirTotalVendido();
+
     // Venta
     void venderGuitarra(Cliente *cliente);
     void venderBajo(Cliente *cliente);
@@ -977,6 +1016,37 @@ public:
     void venderPedal(Cliente *cliente);
     void venderPlumillas(Cliente *cliente);
 };
+
+int Tienda::getMinStock()
+{
+    return minStock;
+}
+
+void Tienda::imprimirTotalVendido()
+{
+    int acumulador = 0;
+    for (int i = 0; i < contClientesAgregados; i++)
+    {
+        acumulador += listaClientes[i]->getTotalGastado();
+    }
+    std::cout << "Hoy se vendieron " << acumulador << " pesos." << std::endl;
+}
+
+Tienda::~Tienda()
+{
+    delete[] listaPedales;
+    delete[] listaGuitarras;
+    delete[] listaBajos;
+    delete[] listaBaterias;
+    delete[] listaFM;
+    delete[] listaMicrofonos;
+    delete[] listaPlumillas;
+    delete[] listaPartituras;
+    delete[] listaCapos;
+    delete[] listaUkuleles;
+
+    delete[] listaClientes;
+}
 
 Tienda::Tienda(int minStockP)
 {
@@ -1009,6 +1079,56 @@ Tienda::Tienda(int minStockP)
     listaClientes = new Cliente *[maxSizeListaClientes];
 }
 
+int Tienda::getContadorStockGuitarra()
+{
+    return contadorStockGuitarra;
+}
+
+int Tienda::getContadorStockBajo()
+{
+    return contadorStockBajo;
+}
+
+int Tienda::getContadorStockBateria()
+{
+    return contadorStockBateria;
+}
+
+int Tienda::getContadorStockCapos()
+{
+    return contadorStockCapos;
+}
+
+int Tienda::getContadorStockUkulele()
+{
+    return contadorStockUkulele;
+}
+
+int Tienda::getContadorStockPedal()
+{
+    return contadorStockPedal;
+}
+
+int Tienda::getContadorStockPlumillas()
+{
+    return contadorStockPlumillas;
+}
+
+int Tienda::getContadorStockPartituras()
+{
+    return contadorStockPartituras;
+}
+
+int Tienda::getContadorStockMicrofonos()
+{
+    return contadorStockMicrofonos;
+}
+
+int Tienda::getContadorStockFM()
+{
+    return contadorStockFM;
+}
+
 void Tienda::venderGuitarra(Cliente *cliente)
 {
     std::cout << "Hola," << cliente->getNombreCompleto();
@@ -1027,9 +1147,9 @@ void Tienda::agregarGuitarra(Guitarra *g)
 void Tienda::venderBateria(Cliente *cliente)
 {
     std::cout << "Hola," << cliente->getNombreCompleto();
-    std::cout << " Pagaras " << listaBaterias[0]->getPrecio() << " en tu guitarra." << std::endl;
-    cliente->agregarProductoComprado(listaBaterias[contadorStockGuitarra - 1]->getMarca());
-    cliente->incrementarTotalGastado(listaBaterias[contadorStockGuitarra - 1]->getPrecio());
+    std::cout << " Pagaras " << listaBaterias[0]->getPrecio() << " en tu bateria." << std::endl;
+    cliente->agregarProductoComprado(listaBaterias[contadorStockBateria - 1]->getMarca());
+    cliente->incrementarTotalGastado(listaBaterias[contadorStockBateria - 1]->getPrecio());
     contadorStockBateria--;
 }
 
@@ -1041,9 +1161,9 @@ void Tienda::agregarBateria(Bateria *b)
 void Tienda::venderBajo(Cliente *cliente)
 {
     std::cout << "Hola," << cliente->getNombreCompleto();
-    std::cout << " Pagaras " << listaBajos[0]->getPrecio() << " en tu guitarra." << std::endl;
-    cliente->agregarProductoComprado(listaBajos[contadorStockGuitarra - 1]->getMarca());
-    cliente->incrementarTotalGastado(listaBajos[contadorStockGuitarra - 1]->getPrecio());
+    std::cout << " Pagaras " << listaBajos[0]->getPrecio() << " en tu bajo." << std::endl;
+    cliente->agregarProductoComprado(listaBajos[contadorStockBajo - 1]->getMarca());
+    cliente->incrementarTotalGastado(listaBajos[contadorStockBajo - 1]->getPrecio());
     contadorStockBajo--;
 }
 
@@ -1056,9 +1176,9 @@ void Tienda::agregarBajo(Bajo *b)
 void Tienda::venderUkulele(Cliente *cliente)
 {
     std::cout << "Hola," << cliente->getNombreCompleto();
-    std::cout << " Pagaras " << listaUkuleles[0]->getPrecio() << " en tu guitarra." << std::endl;
-    cliente->agregarProductoComprado(listaUkuleles[contadorStockGuitarra - 1]->getMarca());
-    cliente->incrementarTotalGastado(listaUkuleles[contadorStockGuitarra - 1]->getPrecio());
+    std::cout << " Pagaras " << listaUkuleles[0]->getPrecio() << " en tu ukulele." << std::endl;
+    cliente->agregarProductoComprado(listaUkuleles[contadorStockUkulele - 1]->getMarca());
+    cliente->incrementarTotalGastado(listaUkuleles[contadorStockUkulele - 1]->getPrecio());
     contadorStockUkulele--;
 }
 
@@ -1071,9 +1191,9 @@ void Tienda::agregarUkulele(Ukulele *u)
 void Tienda::venderFM(Cliente *cliente)
 {
     std::cout << "Hola," << cliente->getNombreCompleto();
-    std::cout << " Pagaras " << listaFM[0]->getPrecio() << " en tu guitarra." << std::endl;
-    cliente->agregarProductoComprado(listaFM[contadorStockGuitarra - 1]->getCuerpo());
-    cliente->incrementarTotalGastado(listaFM[contadorStockGuitarra - 1]->getPrecio());
+    std::cout << " Pagaras " << listaFM[0]->getPrecio() << " en tu FM." << std::endl;
+    cliente->agregarProductoComprado(listaFM[contadorStockFM - 1]->getCuerpo());
+    cliente->incrementarTotalGastado(listaFM[contadorStockFM - 1]->getPrecio());
     contadorStockFM--;
 }
 
@@ -1086,9 +1206,9 @@ void Tienda::agregarFM(FM *f)
 void Tienda::venderPartituras(Cliente *cliente)
 {
     std::cout << "Hola," << cliente->getNombreCompleto();
-    std::cout << " Pagaras " << listaPartituras[0]->getPrecio() << " en tu guitarra." << std::endl;
-    cliente->agregarProductoComprado(listaPartituras[contadorStockGuitarra - 1]->getDisco());
-    cliente->incrementarTotalGastado(listaPartituras[contadorStockGuitarra - 1]->getPrecio());
+    std::cout << " Pagaras " << listaPartituras[0]->getPrecio() << " en tus partituras." << std::endl;
+    cliente->agregarProductoComprado(listaPartituras[contadorStockPartituras - 1]->getDisco());
+    cliente->incrementarTotalGastado(listaPartituras[contadorStockPartituras - 1]->getPrecio());
     contadorStockPartituras--;
 }
 
@@ -1101,9 +1221,9 @@ void Tienda::agregarPartituras(Partituras *p)
 void Tienda::venderPlumillas(Cliente *cliente)
 {
     std::cout << "Hola," << cliente->getNombreCompleto();
-    std::cout << " Pagaras " << listaPlumillas[0]->getPrecio() << " en tu guitarra." << std::endl;
-    cliente->agregarProductoComprado(listaPlumillas[contadorStockGuitarra - 1]->getTipo());
-    cliente->incrementarTotalGastado(listaPlumillas[contadorStockGuitarra - 1]->getPrecio());
+    std::cout << " Pagaras " << listaPlumillas[0]->getPrecio() << " en tus plumillas." << std::endl;
+    cliente->agregarProductoComprado(listaPlumillas[contadorStockPlumillas - 1]->getTipo());
+    cliente->incrementarTotalGastado(listaPlumillas[contadorStockPlumillas - 1]->getPrecio());
     contadorStockPlumillas--;
 }
 
@@ -1116,9 +1236,9 @@ void Tienda::agregarPlumillas(Plumillas *p)
 void Tienda::venderMicrofonos(Cliente *cliente)
 {
     std::cout << "Hola," << cliente->getNombreCompleto();
-    std::cout << " Pagaras " << listaMicrofonos[0]->getPrecio() << " en tu guitarra." << std::endl;
-    cliente->agregarProductoComprado(listaMicrofonos[contadorStockGuitarra - 1]->getMarca());
-    cliente->incrementarTotalGastado(listaMicrofonos[contadorStockGuitarra - 1]->getPrecio());
+    std::cout << " Pagaras " << listaMicrofonos[0]->getPrecio() << " en tu microfono." << std::endl;
+    cliente->agregarProductoComprado(listaMicrofonos[contadorStockMicrofonos - 1]->getMarca());
+    cliente->incrementarTotalGastado(listaMicrofonos[contadorStockMicrofonos - 1]->getPrecio());
     contadorStockMicrofonos--;
 }
 
@@ -1131,9 +1251,9 @@ void Tienda::agregarMicrofonos(Microfonos *m)
 void Tienda::venderCapos(Cliente *cliente)
 {
     std::cout << "Hola," << cliente->getNombreCompleto();
-    std::cout << " Pagaras " << listaCapos[0]->getPrecio() << " en tu guitarra." << std::endl;
-    cliente->agregarProductoComprado(listaCapos[contadorStockGuitarra - 1]->getTipo());
-    cliente->incrementarTotalGastado(listaCapos[contadorStockGuitarra - 1]->getPrecio());
+    std::cout << " Pagaras " << listaCapos[0]->getPrecio() << " en tu capo." << std::endl;
+    cliente->agregarProductoComprado(listaCapos[contadorStockCapos - 1]->getTipo());
+    cliente->incrementarTotalGastado(listaCapos[contadorStockCapos - 1]->getPrecio());
     contadorStockCapos--;
 }
 
@@ -1146,9 +1266,9 @@ void Tienda::agregarCapos(Capos *c)
 void Tienda::venderPedal(Cliente *cliente)
 {
     std::cout << "Hola," << cliente->getNombreCompleto();
-    std::cout << " Pagaras " << listaPedales[0]->getPrecio() << " en tu guitarra." << std::endl;
-    cliente->agregarProductoComprado(listaPedales[contadorStockGuitarra - 1]->getMarca());
-    cliente->incrementarTotalGastado(listaPedales[contadorStockGuitarra - 1]->getPrecio());
+    std::cout << " Pagaras " << listaPedales[0]->getPrecio() << " en tu pedal." << std::endl;
+    cliente->agregarProductoComprado(listaPedales[contadorStockPedal - 1]->getMarca());
+    cliente->incrementarTotalGastado(listaPedales[contadorStockPedal - 1]->getPrecio());
     contadorStockPedal--;
 }
 
@@ -1240,5 +1360,19 @@ int main()
     tienda_musical.listarProductos();
 
     Cliente sabri("Sabrina", 1);
+    Cliente andy("Andres", 2);
     tienda_musical.venderGuitarra(&sabri);
+    tienda_musical.venderBajo(&andy);
+    tienda_musical.venderBateria(&sabri);
+    tienda_musical.venderMicrofonos(&sabri);
+    tienda_musical.venderPedal(&andy);
+    tienda_musical.venderUkulele(&andy);
+    tienda_musical.venderFM(&sabri);
+    tienda_musical.venderCapos(&andy);
+    tienda_musical.venderPartituras(&sabri);
+    tienda_musical.venderPlumillas(&andy);
+
+    std::cout << sabri.getTotalGastado() << std::endl;
+
+    tienda_musical.imprimirTotalVendido();
 }
