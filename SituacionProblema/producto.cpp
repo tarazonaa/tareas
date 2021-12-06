@@ -1004,6 +1004,8 @@ public:
 
     void imprimirTotalVendido();
 
+    void agregarCliente(Cliente *clienteP);
+
     // Venta
     void venderGuitarra(Cliente *cliente);
     void venderBajo(Cliente *cliente);
@@ -1016,6 +1018,12 @@ public:
     void venderPedal(Cliente *cliente);
     void venderPlumillas(Cliente *cliente);
 };
+
+void Tienda::agregarCliente(Cliente *clienteP)
+{
+    listaClientes[contClientesAgregados] = clienteP;
+    contClientesAgregados++;
+}
 
 int Tienda::getMinStock()
 {
@@ -1361,6 +1369,8 @@ int main()
 
     Cliente sabri("Sabrina", 1);
     Cliente andy("Andres", 2);
+    tienda_musical.agregarCliente(&sabri);
+    tienda_musical.agregarCliente(&andy);
     tienda_musical.venderGuitarra(&sabri);
     tienda_musical.venderBajo(&andy);
     tienda_musical.venderBateria(&sabri);
